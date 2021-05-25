@@ -1,0 +1,19 @@
+name: Ci workflow
+
+on: pull_request
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions / checkout@v2
+
+      - name: Install
+        run: npm Install
+
+      - name: Build
+        run: npm run Build
+
+      - name: Test e2e
+        run: npm run test:e2e:ci
